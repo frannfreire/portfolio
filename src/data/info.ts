@@ -74,12 +74,5 @@ export const info = {
 			githubUrl: "",
 			liveUrl: "https://www.frannfreire.com/",
 		},
-		{
-			title: "Astro Portfolio",
-			isFeatured: true,
-			thumbnail: "/assets/images/astro-portfolio.webp",
-			githubUrl: "",
-			liveUrl: "",
-		},
 	],
 };
