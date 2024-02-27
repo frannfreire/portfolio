@@ -70,14 +70,14 @@ export const info = {
 		{
 			title: "My Portfolio",
 			isFeatured: true,
-			thumbnail: "/assets/images/astro-portfolio.png",
+			thumbnail: "/assets/images/astro-portfolio.webp",
 			githubUrl: "",
-			liveUrl: "https://frannfreire.com/",
+			liveUrl: "https://www.frannfreire.com/",
 		},
 		{
 			title: "Astro Portfolio",
 			isFeatured: true,
-			thumbnail: "/assets/images/astro-portfolio.png",
+			thumbnail: "/assets/images/astro-portfolio.webp",
 			githubUrl: "",
 			liveUrl: "",
 		},
