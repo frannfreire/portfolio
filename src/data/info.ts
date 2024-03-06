@@ -74,5 +74,12 @@ export const info = {
 			githubUrl: "",
 			liveUrl: "https://www.frannfreire.com/",
 		},
+		{
+			title: "Shop Online",
+			isFeatured: true,
+			thumbnail: "/assets/images/styline.webp",
+			githubUrl: "",
+			liveUrl: "https://styline.uy/",
+		},
 	],
 };
