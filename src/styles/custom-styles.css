@@ -1,34 +1,72 @@
-/* gradient heading */
+/* Enhanced gradient heading with modern styling */
 .main-heading {
   display: inline-block;
   margin: 2rem 0;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   background: linear-gradient(
-    89.81deg,
-    #9845e8 -1.72%,
-    #33d2ff 54.05%,
-    #dd5789 99.78%
+    45deg,
+    #ff6b6b 0%,
+    #4ecdc4 50%,
+    #45b8ac 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
-  background-size: 150% 150%;
-  animation: gradient 15s ease infinite;
-  line-height: 1.2;
+  background-size: 400% 400%;
+  animation: gradient 6s ease infinite;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 80px rgba(78, 205, 196, 0.6);
+  filter: drop-shadow(0 0 0.75rem rgba(78, 205, 196, 0.3));
 }
 
+/* Smooth gradient animation */
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
   }
-
   50% {
     background-position: 100% 50%;
   }
-
   100% {
     background-position: 0% 50%;
   }
+}
+
+/* Enhanced link hover effects */
+a:not(.footer-icons):hover {
+  background: linear-gradient(
+    45deg,
+    #ff6b6b 0%,
+    #4ecdc4 50%,
+    #45b8ac 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(-2px);
+  filter: brightness(1.2);
+}
+
+/* Smooth transitions for all interactive elements */
+a, button, .theme-button {
+  transition: all 0.3s ease;
+}
+
+/* Card hover effects */
+.project-card-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-card-hover:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
 }

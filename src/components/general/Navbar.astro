@@ -4,22 +4,22 @@ import { createLogo } from "@utils";
 ---
 
 <header
-  class="container flex items-center justify-between h-[80px] sm:h-[123px]"
+  class="container flex items-center justify-between h-[80px] sm:h-[123px] sticky top-0 z-50 backdrop-blur-md bg-light/80 dark:bg-dark/80 transition-all duration-300"
 >
   <a
-    class="text-2xl dark:text-light font-semibold dark:font-semibold font-outfit"
+    class="text-2xl dark:text-light font-bold font-outfit hover:scale-105 transition-transform duration-300"
     href="/"
     >{createLogo(info.name)}.
   </a>
   <nav>
-    <ul class="flex items-center">
+    <ul class="flex items-center gap-2">
       <li>
-        <a class="p-4 dark:text-light block text-lg" href="/projects"
+        <a class="px-5 py-3 dark:text-light block text-lg hover:text-blue transition-colors duration-300 rounded-md hover:bg-gray/10 dark:hover:bg-dark-gray/50" href="/projects"
           >Projects</a
         >
       </li>
       <li>
-        <a class="p-4 dark:text-light block text-lg" href="/blog"
+        <a class="px-5 py-3 dark:text-light block text-lg hover:text-blue transition-colors duration-300 rounded-md hover:bg-gray/10 dark:hover:bg-dark-gray/50" href="/blog"
           >Blog</a
         >
       </li>
@@ -30,7 +30,7 @@ import { createLogo } from "@utils";
         <button
           aria-label="theme-button"
           id="theme-button"
-          class="theme-button"
+          class="theme-button ml-2 hover:rotate-12 transition-transform duration-300"
         ></button>
       </li>
     </ul>

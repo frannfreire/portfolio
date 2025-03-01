@@ -14,7 +14,7 @@
     @apply bg-light dark:bg-dark;
   }
   .container {
-    @apply max-w-[1112px] mx-auto px-4;
+    @apply max-w-[1112px] mx-auto px-4 relative z-10;
   }
   h1,
   h2,
@@ -36,15 +36,15 @@
     @apply font-inter;
   }
   .footer-icons {
-    @apply dark:text-light flex items-center border border-dark dark:border-light p-4 rounded-lg justify-center;
+    @apply dark:text-light flex items-center border border-dark dark:border-light p-4 rounded-lg justify-center backdrop-blur-sm bg-white/5 shadow-lg transition-all duration-300;
   }
   .footer-icons:hover {
-    @apply rounded-sm;
+    @apply rounded-sm transform scale-110 shadow-xl border-blue;
   }
   .theme-button {
-    @apply dark:text-light rounded-lg p-4 ml-2 bg-slate-100 dark:bg-[#202020];
+    @apply dark:text-light rounded-lg p-4 ml-2 bg-slate-100 dark:bg-[#202020] shadow-md transition-all duration-300;
   }
   .theme-button:hover {
-    @apply dark:bg-[#151515];
+    @apply dark:bg-[#151515] shadow-lg transform scale-105;
   }
 }
