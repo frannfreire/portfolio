@@ -35,3 +35,18 @@ export interface IProjects {
 export interface IProjectDetails {
   projectDetail: IProject;
 }
+
+export interface ISkill {
+  name: string;
+  icon?: string;
+}
+
+export interface ISkillCategory {
+  category: string;
+  items: ISkill[];
+}
+
+export interface ITechSkills {
+  title: string;
+  skills: ISkillCategory[];
+}
