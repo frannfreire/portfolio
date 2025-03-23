@@ -210,6 +210,13 @@ export const info = {
 			thumbnail: "/assets/images/gastixdigital.webp",
 			githubUrl: "",
 			liveUrl: "https://gastix.digital/",
+		},
+		{
+			title: "Tu Cine Digital",
+			isFeatured: true,
+			thumbnail: "/assets/images/tucinedigital.webp",
+			githubUrl: "",
+			liveUrl: "https://tu-cine-digital.vercel.app/",
 		}
 	],
 };
