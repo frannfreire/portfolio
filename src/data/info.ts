@@ -216,7 +216,7 @@ export const info = {
 			isFeatured: true,
 			thumbnail: "/assets/images/tucinedigital.webp",
 			githubUrl: "",
-			liveUrl: "https://tu-cine-digital.vercel.app/",
+			liveUrl: "https://tucine.digital/",
 		}
 	],
 };
