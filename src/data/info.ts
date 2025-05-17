@@ -144,7 +144,7 @@ export const info = {
 			name: "WeShopU (Remote)",
 			location: "United States",
 			startDate: "Mar 2025",
-			endDate: "Present",
+			endDate: "May 2025",
 			description: [
 				"✓ CRM management in Airtable.",
 				"✓ Shopify maintenance.",
