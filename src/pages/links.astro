@@ -1,0 +1,22 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { info } from "@data";
+import Linktree from "@components/general/Linktree.astro";
+import MetaHead from "@components/general/MetaHead.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <MetaHead
+      title={"Links"}
+      description={"All my important links in one place."}
+      ogImageUrl={"/assets/public/images/profile.png"}
+    />
+  </head>
+  <body>
+    <Layout>
+      <Linktree projects={info.projects} socialMedia={info.socialMedia} />
+    </Layout>
+  </body>
+</html>

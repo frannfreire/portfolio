@@ -1,0 +1,87 @@
+---
+import { IProject } from "@types";
+import { info } from "@data";
+
+interface Props {
+  projects: IProject[];
+  socialMedia: typeof info.socialMedia;
+}
+
+const { projects, socialMedia } = Astro.props as Props;
+---
+
+<section class="flex flex-col items-center justify-center min-h-screen py-10">
+  <h1 class="text-5xl font-bold mb-8 dark:text-light">My Links</h1>
+
+  <div class="w-full max-w-md space-y-4">
+    <!-- Project Links -->
+    <div class="bg-white dark:bg-dark-gray rounded-lg shadow-lg p-6">
+      <h2 class="text-2xl font-semibold mb-4 dark:text-light">Projects</h2>
+      <ul class="space-y-3">
+        {
+          projects.map((project) => (
+            <li>
+              <a
+                href={project.liveUrl || project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-between p-4 bg-gray-100 dark:bg-gray-700 rounded-md hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200 text-lg dark:text-light"
+              >
+                <span>{project.title}</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  ></path>
+                </svg>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="bg-white dark:bg-dark-gray rounded-lg shadow-lg p-6">
+      <h2 class="text-2xl font-semibold mb-4 dark:text-light">Social Media</h2>
+      <ul class="space-y-3">
+        {
+          Object.entries(socialMedia).map(([key, value]) => (
+            <li>
+              <a
+                href={value}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-between p-4 bg-gray-100 dark:bg-gray-700 rounded-md hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200 text-lg dark:text-light"
+              >
+                <span>{key.charAt(0).toUpperCase() + key.slice(1)}</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  ></path>
+                </svg>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
