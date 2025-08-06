@@ -3,16 +3,20 @@ import Layout from "@layouts/Layout.astro";
 import { info } from "@data";
 import Linktree from "@components/general/Linktree.astro";
 import MetaHead from "@components/general/MetaHead.astro";
+import { getCurrentLanguage, t } from "@utils/i18n";
+
+const currentLang = getCurrentLanguage();
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={currentLang}>
   <head>
     <MetaHead
-      title={"Links"}
-      description={"All my important links in one place."}
-      ogImageUrl={"/assets/public/images/profile.png"}
+      title="Links"
+      description={t('metaDescription', currentLang)}
+      ogImageUrl={"/assets/images/perfil.jpeg"}
     />
+    <script src="/src/scripts/language-persistence.js"></script>
   </head>
   <body>
     <Layout>

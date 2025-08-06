@@ -1,6 +1,8 @@
 ---
 import { info } from "@data";
 import { createLogo } from "@utils";
+import TranslatableText from "@components/general/TranslatableText.astro";
+import LanguageToggle from "@components/general/LanguageToggle.astro";
 ---
 
 <header
@@ -14,18 +16,27 @@ import { createLogo } from "@utils";
   <nav>
     <ul class="flex items-center gap-2">
       <li>
-        <a class="px-5 py-3 dark:text-light block text-lg hover:text-blue transition-colors duration-300 rounded-md hover:bg-gray/10 dark:hover:bg-dark-gray/50" href="/projects"
-          >Projects</a
-        >
+        <a class="px-5 py-3 dark:text-light block text-lg hover:text-blue transition-colors duration-300 rounded-md hover:bg-gray/10 dark:hover:bg-dark-gray/50" href="/projects">
+          <TranslatableText 
+            en="Projects" 
+            es="Proyectos"
+          />
+        </a>
       </li>
       <li>
-        <a class="px-5 py-3 dark:text-light block text-lg hover:text-blue transition-colors duration-300 rounded-md hover:bg-gray/10 dark:hover:bg-dark-gray/50" href="/blog"
-          >Blog</a
-        >
+        <a class="px-5 py-3 dark:text-light block text-lg hover:text-blue transition-colors duration-300 rounded-md hover:bg-gray/10 dark:hover:bg-dark-gray/50" href="/blog">
+          <TranslatableText 
+            en="Blog" 
+            es="Blog"
+          />
+        </a>
       </li>
       <!-- <li>
         <a class="p-4 dark:text-light block text-lg" href="/contact">Contact</a>
       </li> -->
+      <li>
+        <LanguageToggle />
+      </li>
       <li>
         <button
           aria-label="theme-button"

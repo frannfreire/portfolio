@@ -1,0 +1,41 @@
+---
+interface Props {
+  en: string;
+  es: string;
+  tag?: string;
+  class?: string;
+  id?: string;
+}
+
+const { en, es, tag = 'span', class: className = '', id = '' } = Astro.props;
+const Tag = tag as any;
+---
+
+<Tag 
+  class={`translatable ${className}`} 
+  data-en={en} 
+  data-es={es}
+  id={id}
+>
+  {en}
+</Tag>
+
+<script is:inline>
+  function updateTranslatableElements() {
+    const lang = localStorage.getItem('language') || 'en';
+    const elements = document.querySelectorAll('.translatable');
+    
+    elements.forEach(element => {
+      const text = element.getAttribute(`data-${lang}`);
+      if (text) {
+        element.textContent = text;
+      }
+    });
+  }
+
+  // Update on page load
+  document.addEventListener('DOMContentLoaded', updateTranslatableElements);
+  
+  // Update when language changes
+  window.addEventListener('languageChange', updateTranslatableElements);
+</script>

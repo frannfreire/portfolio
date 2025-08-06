@@ -1,22 +1,27 @@
 ---
 import MetaHead from "@components/general/MetaHead.astro";
 import Layout from "@layouts/Layout.astro";
+
+import { getCurrentLanguage, t } from "@utils/i18n";
+
+const currentLang = getCurrentLanguage();
 const allPosts = await Astro.glob("../pages/posts/*.md");
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={currentLang}>
 	<head>
 		<MetaHead
-			title={"Blog"}
-			description={"All projects are available in this page."}
-			ogImageUrl={"/assets/public/images/profile.png"}
+			title={t('blog', currentLang)}
+			description={t('metaDescription', currentLang)}
+			ogImageUrl={"/assets/images/perfil.jpeg"}
 		/>
+		<script src="/src/scripts/language-persistence.js"></script>
 	</head>
 
 	<body>
 		<Layout>
-			<h1 style="line-height: 1.2;">Blog</h1>
+			<h1 style="line-height: 1.2;">{t('blog', currentLang)}</h1>
 			<div class="grid md:grid-cols-2 grid-cols-1 gap-6 my-12">
 				{
 					allPosts.map((post) => (
@@ -33,7 +38,7 @@ const allPosts = await Astro.glob("../pages/posts/*.md");
 								</p>
 								<div class="mt-4 flex justify-end">
 									<span class="inline-flex items-center text-blue group-hover:translate-x-1 transition-transform duration-300">
-										Read more
+										{t('readMore', currentLang)}
 										<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
 										</svg>

@@ -1,26 +1,30 @@
 ---
 import { info } from "@data";
+import { getCurrentLanguage, t } from "@utils/i18n";
 
 import ProjectsWrapper from "@components/general/ProjectsWrapper.astro";
 import MetaHead from "@components/general/MetaHead.astro";
 import Layout from "@layouts/Layout.astro";
 
+
+const currentLang = getCurrentLanguage();
 const Projects = info.projects.map((project) => project);
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={currentLang}>
   <head>
     <MetaHead
-      title={"Projects"}
-      description={"All projects are available in this page."}
-      ogImageUrl={"/assets/public/images/profile.png"}
+      title={t('projects', currentLang)}
+      description={t('metaDescription', currentLang)}
+      ogImageUrl={"/assets/images/perfil.jpeg"}
     />
+    <script src="/src/scripts/language-persistence.js"></script>
   </head>
 
   <body>
     <Layout>
-      <h1 style="line-height: 1.2;">Projects</h1>
+      <h1 style="line-height: 1.2;">{t('projects', currentLang)}</h1>
       <ProjectsWrapper projects={Projects} />
     </Layout>
   </body>

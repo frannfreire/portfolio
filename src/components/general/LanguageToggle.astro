@@ -1,0 +1,75 @@
+---
+// Language Toggle Component - Integrated in Navbar
+---
+
+<button
+  id="language-btn"
+  class="flex items-center justify-center gap-1 px-2 py-2 ml-2 bg-transparent hover:bg-gray/10 dark:hover:bg-dark-gray/50 rounded-md transition-all duration-200 text-sm font-medium text-gray-800 dark:text-light hover:text-blue dark:hover:text-blue min-w-[50px]"
+  aria-label="Toggle Language"
+>
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <circle cx="12" cy="12" r="10"></circle>
+    <path d="M2 12h20"></path>
+    <path
+      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+    ></path>
+  </svg>
+  <span id="current-lang" class="text-sm font-semibold">EN</span>
+</button>
+
+<script is:inline>
+  function getCurrentLanguage() {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("language");
+      return stored && (stored === "en" || stored === "es") ? stored : "en";
+    }
+    return "en";
+  }
+
+  function setCurrentLanguage(lang) {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("language", lang);
+      document.documentElement.lang = lang;
+      window.dispatchEvent(new CustomEvent("languageChange", { detail: lang }));
+    }
+  }
+
+  function toggleLanguage() {
+    const current = getCurrentLanguage();
+    const newLang = current === "en" ? "es" : "en";
+    setCurrentLanguage(newLang);
+    return newLang;
+  }
+
+  function updateLanguageButton() {
+    const btn = document.getElementById("current-lang");
+    const currentLang = getCurrentLanguage();
+    if (btn) {
+      btn.textContent = currentLang.toUpperCase();
+    }
+  }
+
+  function handleLanguageToggle() {
+    toggleLanguage();
+    updateLanguageButton();
+  }
+
+  // Initialize
+  document.addEventListener("DOMContentLoaded", () => {
+    updateLanguageButton();
+
+    const btn = document.getElementById("language-btn");
+    if (btn) {
+      btn.addEventListener("click", handleLanguageToggle);
+    }
+  });
+</script>

@@ -1,0 +1,38 @@
+---
+interface Props {
+  enItems: string[];
+  esItems: string[];
+  class?: string;
+}
+
+const { enItems, esItems, class: className = '' } = Astro.props;
+---
+
+<ul class={`translatable-list ${className}`} data-en={JSON.stringify(enItems)} data-es={JSON.stringify(esItems)}>
+  {enItems.map((item) => (
+    <li class="dark:text-gray text-sm pl-2 border-l-2 border-blue/50 ml-2">{item}</li>
+  ))}
+</ul>
+
+<script is:inline>
+  function updateTranslatableLists() {
+    const lang = localStorage.getItem('language') || 'en';
+    const lists = document.querySelectorAll('.translatable-list');
+    
+    lists.forEach(list => {
+      const itemsData = list.getAttribute(`data-${lang}`);
+      if (itemsData) {
+        const items = JSON.parse(itemsData);
+        list.innerHTML = items.map(item => 
+          `<li class="dark:text-gray text-sm pl-2 border-l-2 border-blue/50 ml-2">${item}</li>`
+        ).join('');
+      }
+    });
+  }
+
+  // Update on page load
+  document.addEventListener('DOMContentLoaded', updateTranslatableLists);
+  
+  // Update when language changes
+  window.addEventListener('languageChange', updateTranslatableLists);
+</script>

@@ -8,6 +8,8 @@ import TechSkills from "@components/home/TechSkills.astro";
 import ProjectsWrapper from "@components/general/ProjectsWrapper.astro";
 import MetaHead from "@components/general/MetaHead.astro";
 
+import TranslatableText from "@components/general/TranslatableText.astro";
+
 const featureProjects = info.projects.reduce((accumulator, project) => {
   if (accumulator.length < 6 && project.isFeatured) {
     accumulator.push(project);
@@ -20,19 +22,31 @@ const featureProjects = info.projects.reduce((accumulator, project) => {
 <html lang="en">
   <head>
     <MetaHead
-      title={"Portfolio"}
-      description={info.about}
-      ogImageUrl={"/assets/public/images/profile.png"}
+      title="Portfolio"
+      description="+4 years of experience. Software Engineer from Uruguay. Specialized in cross-platform bots, web and mobile applications."
+      ogImageUrl={"/assets/images/perfil.jpeg"}
     />
+    <script is:inline>
+      // Set initial language on HTML element
+      document.addEventListener('DOMContentLoaded', () => {
+        const lang = localStorage.getItem('language') || 'en';
+        document.documentElement.lang = lang;
+      });
+    </script>
   </head>
 
   <body>
     <Layout>
-      <Hero name={info.name} about={info.about} />
-      <Experience title={"EXPERIENCE"} details={info.experience} />
-      <TechSkills title={"TECH SKILLS"} skills={info.techSkills} />
+      <Hero name={info.name} />
+      <Experience />
+      <TechSkills />
       <section>
-        <h2 class="w-[15rem] dark:text-light mt-16">FEATURE PROJECTS</h2>
+        <TranslatableText 
+          en="FEATURED PROJECTS" 
+          es="PROYECTOS DESTACADOS"
+          tag="h2"
+          class="w-[15rem] dark:text-light mt-16"
+        />
         <ProjectsWrapper projects={featureProjects} />
       </section>
     </Layout>

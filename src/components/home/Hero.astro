@@ -1,17 +1,40 @@
 ---
 import { IHeroProps } from "@types";
 import { info } from "@data";
+import TranslatableText from "@components/general/TranslatableText.astro";
 
-const { name, about } = Astro.props as IHeroProps;
+const { name } = Astro.props as IHeroProps;
 ---
 
 <section>
-	<span class="mt-[117px] inline-flex items-center px-3 py-1.5 rounded-lg text-sm justify-center bg-green-700 text-white">🎉 Available to work</span>
-	<p class="dark:text-light mt-4">Hey, I’m</p>
-	<h1>{name}</h1>
-	<p class="dark:text-light text-lg mb-16 w-[70%]">
-		{about}
-	</p>
+	<div class="flex flex-col items-start gap-6 mt-[117px]">
+		<img 
+			src="/assets/images/perfil.jpeg" 
+			alt="Francisco Freire - Profile Picture" 
+			class="w-32 h-32 rounded-full object-cover border-4 border-gray-200 dark:border-gray-700 shadow-lg"
+		/>
+		<div>
+			<TranslatableText 
+				en="🎉 Available to work" 
+				es="🎉 Disponible para trabajar"
+				tag="span"
+				class="inline-flex items-center px-3 py-1.5 rounded-lg text-sm justify-center bg-green-700 text-white"
+			/>
+			<TranslatableText 
+				en="Hey, I'm" 
+				es="Hola, soy"
+				tag="p"
+				class="dark:text-light mt-4"
+			/>
+			<h1>{name}</h1>
+			<TranslatableText 
+				en="+4 years of experience. Software Engineer from Uruguay. Specialized in cross-platform bots, web and mobile applications." 
+				es="+4 años de experiencia. Ingeniero de Software de Uruguay. Especializado en bots multiplataforma, aplicaciones web y móviles."
+				tag="p"
+				class="dark:text-light text-lg mb-16 w-[70%]"
+			/>
+		</div>
+	</div>
 
 	<div class="grid grid-cols-5 gap-4 w-96">
 		<a
