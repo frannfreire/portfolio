@@ -237,13 +237,21 @@ export const info = {
 	socialMedia: {
 		instagram: "https://instagram.com/frann.freire",
 		tiktok: "https://www.tiktok.com/@frann.digital",
-		twitter: "https://twitter.com/frannn_freire",
+		youtube: "https://www.youtube.com/@frann.freire",
 		linkedin: "https://www.linkedin.com/in/frannfreire/",
+		twitter: "https://twitter.com/frannn_freire",
 		github: "https://github.com/frannfreire",
-		email: "mailto:contact.frann@gmail.com"
+		email: "mailto:contact.frann@gmail.com",
 	},
 
 	projects: [
+		{
+			title: "Comunidad ColmenIA - Gratis",
+			isFeatured: true,
+			thumbnail: "/assets/images/portfolio.webp",
+			githubUrl: "",
+			liveUrl: "https://intelix.digital/comunidad",
+		},
 		{
 			title: "Portfolio",
 			isFeatured: true,
